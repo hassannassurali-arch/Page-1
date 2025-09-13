@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IQ Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: lightblue; /* added background */
+    }
+    h2 {
+      color: darkblue;
+    }
+    .question {
+      margin-bottom: 15px;
+    }
+    button {
+      padding: 8px 15px;
+      background: darkblue;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: navy;
+    }
+  </style>
+</head>
+<body>
+  <h2>Simple IQ Test</h2>
+  <form id="iqTest">
+    <div class="question">
+      <p>1. What comes next in the sequence? 2, 4, 6, 8, __</p>
+      <input type="radio" name="q1" value="10">10<br>
+      <input type="radio" name="q1" value="12">12<br>
+      <input type="radio" name="q1" value="14">14
+    </div>
+
+    <div class="question">
+      <p>2. Which shape has 3 sides?</p>
+      <input type="radio" name="q2" value="Triangle">Triangle<br>
+      <input type="radio" name="q2" value="Square">Square<br>
+      <input type="radio" name="q2" value="Circle">Circle
+    </div>
+
+    <div class="question">
+      <p>3. If you rearrange the letters “C A T”, what animal do you get?</p>
+      <input type="radio" name="q3" value="Dog">Dog<br>
+      <input type="radio" name="q3" value="Cat">Cat<br>
+      <input type="radio" name="q3" value="Rat">Rat
+    </div>
+
+    <button type="button" onclick="checkAnswers()">Submit</button>
+  </form>
+
+  <h3 id="result"></h3>
+
+  <script>
+    function checkAnswers() {
+      let score = 0;
+      let form = document.forms['iqTest'];
+
+      if (form['q1'].value === "10") score++;
+      if (form['q2'].value === "Triangle") score++;
+      if (form['q3'].value === "Cat") score++;
+
+      document.getElementById("result").innerText = "Your score: " + score + "/3";
+    }
+  </script>
+  <a href="../index.html">go back home</a>
+</body>
+</html>
